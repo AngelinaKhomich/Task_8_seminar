@@ -21,16 +21,16 @@ def input_data():
         var = int(input("Введите номер варианта: "))
 
     if var == 1:
-        with open('data_first_variant.csv', 'a', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_first_variant.csv', 'a', encoding='utf-8') as file:
             file.write(f'{name}\n{surname}\n{phone}\n{address}\n\n')
     else:
-        with open('data_second_variant.csv', 'a', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_second_variant.csv', 'a', encoding='utf-8') as file:
             file.write(f'{name};{surname};{phone};{address}\n')
 
 
 def print_data():
     print('Вывожу данные для Вас данные из 1-ого файла\n')
-    with open('data_first_variant.csv', 'r', encoding='utf-8') as file:
+    with open('D:\DZ7\Task_8_seminar\data_first_variant.csv', 'r', encoding='utf-8') as file:
         data_first = file.readlines()
         data_first_version_second = []
         data_middle = ''
@@ -42,7 +42,7 @@ def print_data():
         data_first = data_first_version_second
         print(''.join(data_first))
     print('Вывожу данные для Вас данные из 2-ого файла\n')
-    with open('data_second_variant.csv', 'r', encoding='utf-8') as file:
+    with open('D:\DZ7\Task_8_seminar\data_second_variant.csv', 'r', encoding='utf-8') as file:
         data_second = list(file.readlines())
         print(*data_second)
     return data_first, data_second
@@ -93,7 +93,7 @@ def change_line(dataFile, numberRow, numberFile):
                      dataFile[numberRow + 1:]
         if numberRow + 1 == len(dataFile):
             data_first = dataFile[:numberRow] + [f'{name}\n{surname}\n{phone}\n{address}\n']
-        with open('data_first_variant.csv', 'w', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_first_variant.csv', 'w', encoding='utf-8') as file:
             file.write(''.join(data_first))
         print('Изменения успешно сохранены!')
     else:
@@ -101,7 +101,7 @@ def change_line(dataFile, numberRow, numberFile):
                       dataFile[numberRow + 1:]
         if numberRow + 1 == len(dataFile):
             data_second = dataFile[:numberRow] + [f'{name};{surname};{phone};{address}\n']
-        with open('data_second_variant.csv', 'w', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_second_variant.csv', 'w', encoding='utf-8') as file:
             file.write(''.join(data_second))
         print('Изменения успешно сохранены!')
 
@@ -143,7 +143,7 @@ def delete_data():
         print(f'Удалить данную запись\n{data_first[number_journal - 1]}')
         # print(data_first[:number_journal - 1], data_first[number_journal + 1:]) error
         data_first = data_first[:number_journal - 1] + data_first[number_journal + 1:]
-        with open('data_first_variant.csv', 'w', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_first_variant.csv', 'w', encoding='utf-8') as file:
             file.write(''.join(data_first))
         print('Изменения успешно сохранены!')
     else:
@@ -152,6 +152,6 @@ def delete_data():
         # Можно добавить проверку, чтобы человек не выходил за пределы записи
         print(f'Удалить данную запись\n{data_second[number_journal - 1]}')
         data_second = data_second[:number_journal] + data_second[number_journal + 1:]
-        with open('data_second_variant.csv', 'w', encoding='utf-8') as file:
+        with open('D:\DZ7\Task_8_seminar\data_second_variant.csv', 'w', encoding='utf-8') as file:
             file.write(''.join(data_second))
         print('Изменения успешно сохранены!')  # Можно вывести конечные данные
